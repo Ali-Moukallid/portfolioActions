@@ -34,6 +34,9 @@ jobs:
       - name: Build Docker image
       
         run: docker build -t ghcr.io/ali-moukallid/portfolioactions:latest .
+      - name: Push Docker image
+        run: docker push ghcr.io/ali-moukallid/portfolioactions:latest
+
   deploy:
     needs: test
     runs-on: [self-hosted, portfolio-deploy]
@@ -48,7 +51,4 @@ jobs:
         shell: bash
         run: docker info
 
-
-
-      - name: Push Docker image
-        run: docker push ghcr.io/ali-moukallid/portfolioactions:latest
+    
